@@ -1,76 +1,210 @@
-# Atividade de Núcleo
+<h1 align="center" style="font-weight: bold;">API para cadastro de pessoas</h1>
 
-- **Orientadores:** Turma  [Fábio Santos Matos de Oliveira](https://gitlab.com/Fabio-Matos1303) | Turma  [Djair Maykon](https://gitlab.com/djairmaykon) | Turma  [Márcio R. Júnior](https://gitlab.com/marciojunior2109) 
-- **Coorientadores gerais:** [Raissa Luna](https://gitlab.com/raissalunana) | [Lucas Júlio](https://gitlab.com/LucasJulio)
+<p align="center">
+ <a href="#tech">Tecnologias</a> • 
+ <a href="#started">Getting Started</a> • 
+  <a href="#routes">API Endpoints</a> •
+ <a href="#colab">Collaborators</a> •
+ <a href="#contribute">Contribute</a>
+</p>
+
+<p align="center">
+    <b>O sistema se trata de uma simples API rest criada com intuito de fazer cadastro de pessoas. Essa foi a minha solução para uma das atividades durante meu tempo como traine da InfoJR, uma empresa júnior de informática da UFBA.</b>
+</p>
+
+<h2 id="technologies">💻 Technologies</h2>
+
+![SQLite](https://img.shields.io/badge/sqlite-%2307405e.svg?style=for-the-badge&logo=sqlite&logoColor=white)
+![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)
+![Nodemon](https://img.shields.io/badge/NODEMON-%23323330.svg?style=for-the-badge&logo=nodemon&logoColor=%BBDEAD)
+![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
+![Prisma](https://img.shields.io/badge/Prisma-3982CE?style=for-the-badge&logo=Prisma&logoColor=white)
+
+<h2 id="started">🚀 Vamos conhecer a aplicação!</h2>
+
+<h3>Prerequisitos</h3>
+
+- [NodeJS](https://github.com/)
+- [Git 2](https://github.com)
+
+<h3>Clonando</h3>
+
+```bash
+git clone https://github.com/Jaedsonn/APIrest-de-cadastro.git
+```
+
+<h3>Rodando o projeto</h3>
 
 
-## Descrição da atividade
+```bash
+cd APIrest-de-cadastro
+npm i
+```
 
-Nessa semana a atividade tem como objetivo a construção de uma API no modelo REST utilizando Typescript, ExpressJS, PrismaORM e um banco relacional.
+<h2 id="routes">📍 API Endpoints</h2>
+
+Rotas da API.
+​
+| route               | description                                          
+|----------------------|-----------------------------------------------------
+| <kbd>POST /usuario/cadastro</kbd>     | rota para cadastro de uma nova pessoa [request details](#post-details)
+| <kbd>GET /usuario/id/:id</kbd>     | rota para encontrar uma pessoa pelo id [request details](#get-id-details)
+| <kbd>GET /usuario/email/:email</kbd>     | rota para encontrar uma pessoa pelo email [request details](#get-email-details)
+| <kbd>GET /usuario/nome/:nome</kbd>     | rota para encontrar uma pessoa pelo nome [request details](#get-nome-details)
+| <kbd>DELETE /usuario/deletar/:id</kbd>     | rota para deletar uma pessoa pelo id de cadastro[request details](#delete-user-id)
+| <kbd>PUT /usuario/atualizar/:id</kbd>     | rota para atualizar uma pessoa pelo id de cadastro [request details](#put-user-id)
+
+<h3 id="post-details">POST /usuario/cadastro</h3>
+
+**REQUEST**
+```json
+{
+"nome":"Keila",
+ "idade":19,
+ "email":"keila@gmail.com",
+ "senha":"jaja123",
+ "estado":"bahia",
+ "cidade":"Serrolândia"
+}
+```
+
+**RESPONSE**
+```json
+{
+    "msg": "Usuário cadastrado!",
+    "user": {
+        "id": 14,
+        "nome": "Keila",
+        "email": "keila@gmail.com",
+        "senha": "jaja123",
+        "idade": 19,
+        "estado": "bahia",
+        "cidade": "Serrolândia"
+    }
+}
+```
 
 
-### Tarefa
+<h3 id="get-id-details">GET /usuario/id/:id</h3>
 
-Desenvolver uma API REST com um CRUD para controle de uma tabela de usuarios (Criada conforme modelo abaixo), com as rotas que constam nos requisitos obrigatorios.
+**RESPONSE**
+```json
+{
+ {
+    "msg": "Usuários encontrados!",
+    "user": {
+        "id": 11,
+        "nome": "Fernanda Silva Santos Jesus",
+        "email": "fermam@gmail.com",
+        "senha": "jaja123",
+        "idade": 19,
+        "estado": "bahia",
+        "cidade": "Serrolândia"
+    }
+}
+}
+```
 
-### Requisitos Obrigatórios:
 
-- Implementar uma rota de criar usuario (Não permitir criar usuario caso já haja outro com o email)
-- Implementar uma rota pra retornar usuario por Ids
-- Implementar uma rota pra retornar usuario por email 
-- Implementar uma rota pra retornar um ou mais usuarios por nome
-- Implementar uma rota pra deletar usuario por Id
-- Implementar uma rota pra atualizar o usuario por Id (Não permitir atualizar usuario caso já haja outro com o email)
-- Usar Express
-- Usar o ORM Prisma
-- Usar um banco relacional (Indicamos o sqlite)
-- Utilizar Typescript
+<h3 id="get-email-details">GET /usuario/email/:email</h3>
 
-## Campos obrigatorios pra User:
- 
-    
-    Id (Único)
-    
----
-    
-    Nome
-    
---- 
-    
-    Email (Único)
-    
---- 
-    
-    Senha
-    
---- 
-    
-    Idade
-    
---- 
-    
-    Estado
-    
---- 
-    
-    Cidade
+**RESPONSE**
+```json
+{
+ {
+    "msg": "Usuários encontrados!",
+    "user": {
+        "id": 11,
+        "nome": "Fernanda Silva Santos Jesus",
+        "email": "fermam@gmail.com",
+        "senha": "jaja123",
+        "idade": 19,
+        "estado": "bahia",
+        "cidade": "Serrolândia"
+    }
+}
+}
+```
 
-### Requisitos Opcionais:
 
-- Usar Docker
-- Retornar mensagem personalizadas de erro com status code em casos como, usuario nao encontrado (todas as rotas por Id e Email), email já existente (rota de criar e update)
-- Criar rota de login e logout com jwt retornando o token de acesso e validar as outras rotas para retornar apenas caso receba um token valido
+<h3 id="get-nome-details">GET /usuario/nome/:nome</h3>
 
-## LINKS UTEIS
+**RESPONSE**
+```json
+{
+ {
+    "msg": "Usuários encontrados!",
+    "user": {
+        "id": 11,
+        "nome": "Fernanda Silva Santos Jesus",
+        "email": "fermam@gmail.com",
+        "senha": "jaja123",
+        "idade": 19,
+        "estado": "bahia",
+        "cidade": "Serrolândia"
+    }
+}
+}
+```
 
-### Express
 
-- https://expressjs.com/pt-br/starter/hello-world.html
-- https://www.youtube.com/watch?v=35J5bO4Hjt8&ab_channel=NiltonR.CSantos
-- https://www.youtube.com/watch?v=E-LAh_2QRSU&ab_channel=RondyCouto
+<h3 id="delete-user-id">DELETE /usuario/deletar/:id</h3>
 
-### Prisma
+**RESPONSE**
+```json
+{
+    "msg": "Usuário deletado!",
+    "user": {
+        "id": 11,
+        "nome": "Fernanda Silva Santos Jesus",
+        "email": "fermam@gmail.com",
+        "senha": "jaja123",
+        "idade": 19,
+        "estado": "bahia",
+        "cidade": "Serrolândia"
+    }
+}
+```
 
-- https://www.prisma.io/docs/getting-started/quickstart
-- https://medium.com/@polianams/construindo-opera%C3%A7%C3%B5es-crud-com-typescript-node-js-prisma-e-express-9eff1cffe61a
-- https://medium.com/@estevamsouzalaureth/construindo-uma-simples-api-rest-com-nodejs-e-express-usando-typescript-2531be5d0e2b
+
+<h3 id="put-user-id">PUT /usuario/atualizar/:id</h3>
+
+**REQUEST**
+```json
+{
+ "nome":"Fernanda Silva Santos Jesus",
+ "idade":19,
+ "email":"Fernandona@gmail.com",
+ "senha":"jaja123",
+ "estado":"bahia",
+ "cidade":"Serrolândia"
+}
+```
+
+**RESPONSE**
+```json
+{
+    "msg": "Usuário Atualizado!",
+    "user": {
+        "id": 12,
+        "nome": "Fernanda Silva Santos Jesus",
+        "email": "Fernandona@gmail.com",
+        "senha": "jaja123",
+        "idade": 19,
+        "estado": "bahia",
+        "cidade": "Serrolândia"
+    }
+}
+```
+
+<h2 id="contribute">📫 Contribute</h2>
+
+Se você quiser contribuir com o meu projeto basta seguir os comandos abaixo☺️
+
+1. `git clone https://github.com/Jaedsonn/APIrest-de-cadastro.git`
+2. `git checkout -b feature/NAME`
+3. Abra um Pull Request explicando o problema resolvido ou o recurso criado, se houver, anexe uma captura de tela das modificações visuais e aguarde a revisão!
+
+<h3>Documentos que podem ajudar</h3>
+
+[📝 How to create a Pull Request](https://www.atlassian.com/br/git/tutorials/making-a-pull-request)
