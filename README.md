@@ -12,6 +12,8 @@
     <b>O sistema se trata de uma simples API rest criada com intuito de fazer cadastro de pessoas. Essa foi a minha solução para uma das atividades durante meu tempo como traine da InfoJR, uma empresa júnior de informática da UFBA.</b>
 </p>
 
+[![PyPI license](https://img.shields.io/pypi/l/ansicolortags.svg)](https://pypi.python.org/pypi/ansicolortags/)
+
 <h2 id="technologies">💻 Technologies</h2>
 
 ![SQLite](https://img.shields.io/badge/sqlite-%2307405e.svg?style=for-the-badge&logo=sqlite&logoColor=white)
@@ -19,6 +21,7 @@
 ![Nodemon](https://img.shields.io/badge/NODEMON-%23323330.svg?style=for-the-badge&logo=nodemon&logoColor=%BBDEAD)
 ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
 ![Prisma](https://img.shields.io/badge/Prisma-3982CE?style=for-the-badge&logo=Prisma&logoColor=white)
+
 
 <h2 id="started">🚀 Vamos conhecer a aplicação!</h2>
 
