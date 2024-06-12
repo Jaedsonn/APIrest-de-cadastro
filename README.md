@@ -42,6 +42,7 @@ git clone https://github.com/Jaedsonn/APIrest-de-cadastro.git
 ```bash
 cd APIrest-de-cadastro
 npm i
+npm run dev
 ```
 
 <h2 id="routes">📍 API Endpoints</h2>
