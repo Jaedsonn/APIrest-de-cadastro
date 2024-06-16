@@ -201,7 +201,7 @@ Rotas da API.
 }
 ```
 
-<h2 id="contribute">📫 Contribute</h2>
+<h2 id="contribute">📫 Contribua</h2>
 
 Se você quiser contribuir com o meu projeto basta seguir os comandos abaixo☺️
 
